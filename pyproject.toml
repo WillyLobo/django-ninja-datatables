@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-ninja-datatables"
+version = "0.1.0"
+description = "Server-side DataTables listings served by django-ninja endpoints, with a small jQuery client."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES"]
+requires-python = ">=3.10"
+dependencies = [
+    "Django>=4.2",
+    "django-ninja>=1.1",
+]
+classifiers = [
+    "Framework :: Django",
+    "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+Homepage = "https://github.com/WillyLobo/django-ninja-datatables"
+Issues = "https://github.com/WillyLobo/django-ninja-datatables/issues"
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-django>=4.8"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ninja_datatables"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+pythonpath = ["."]
+testpaths = ["tests"]
